@@ -42,16 +42,20 @@ function selectOption(option) {
 const textNodes = [
   {
     id: 1,
-    text: 'You wake up in a strange place and you see a jar of blue goo near you.',
+    text: 'Choose a family:',
     options: [
       {
-        text: 'Take the goo',
+        text: 'Zenin family ',
         setState: { blueGoo: true },
-        nextText: 2
+        nextText: 12
       },
       {
-        text: 'Leave the goo',
-        nextText: 2
+        text: 'Kamo family',
+        nextText: 13
+      },
+      {
+        text: 'Gojo family',
+        nextText: 14
       }
     ]
   },
@@ -187,6 +191,63 @@ const textNodes = [
       {
         text: 'Congratulations. Play Again.',
         nextText: -1
+      }
+    ]
+  },
+  {
+    id: 12,
+    text: 'The Zenin Family, one of the 3 noble clans that embody all the noble values of a major clan. They believe powerful cursed techniques are more important than anything else. Choose a main technique to posses:',
+    options: [
+      {
+        text: 'Ten Shadows Technique',
+        setState: { blueGoo: true },
+        nextText: 12
+      },
+      {
+        text: 'Projection Sorcery',
+        nextText: 12
+      },
+      {
+        text: 'Straw Doll Technique',
+        nextText: 12
+      }
+    ]
+  },
+  {
+    id: 13,
+    text: 'Choose a main technique:',
+    options: [
+      {
+        text: 'Blood Manipulation',
+        setState: { blueGoo: true },
+        nextText: 12
+      },
+      {
+        text: 'Projection Sorcery',
+        nextText: 12
+      },
+      {
+        text: 'Cursed Speech',
+        nextText: 12
+      }
+    ]
+  },
+  {
+    id: 14,
+    text: 'Choose a main technique:',
+    options: [
+      {
+        text: 'Limitless',
+        setState: { blueGoo: true },
+        nextText: 12
+      },
+      {
+        text: 'Idle Transfiguration',
+        nextText: 12
+      },
+      {
+        text: 'Dismantle and Cleave',
+        nextText: 1
       }
     ]
   }
