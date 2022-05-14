@@ -44,12 +44,18 @@ function selectOption(option) {
   showTextNode(nextTextNodeId)
 }
 
+
+
 const textNodes = [
   {
     id: 1,
     text: 'Welcome to the sorcerer world. Cursed Spirits run rampant and plague the lives of citizens and are the reason for unknown deaths. Cursed Spirits are a race of spiritual beings who manifested from cursed energy as a result of the negative emotions that flow out of humans. They bring harm to humanity. They are able to make themselves unnoticable to ordinary people but only a certain few can see them, Sorcerers. Sorcerers are individuals trained and employed in Japan to defend humanity from cursed spirits. Sorcerers are also able to use cursed energy to defend others but sorcerers who use their sorcery for evil are known as cursed users who work with cursed spirits to destroy the world. So, go on your path of heroism young sorcerer. Develop your techniques, become stronger, and reach the peak of sorcery to become the strongest and unrivaled sorcerer.',
     image: 'https://static.wikia.nocookie.net/jujutsu-kaisen/images/6/60/Divine_Dogs_%28Anime%29.png/revision/latest/scale-to-width-down/1000?cb=20201003031056',
     options: [
+      {
+        text: 'Start your journey',
+        nextText: 2
+      },
       {
         text: 'Start your journey',
         nextText: 2
