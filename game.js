@@ -16,8 +16,6 @@ function showTextNode(textNodeIndex) {
   while (optionButtonsElement.firstChild) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild)
   }
-  var image = document.getElementById("image");
-  var image = document.createElement("image");
 
 
   textNode.options.forEach(option => {
@@ -44,18 +42,13 @@ function selectOption(option) {
   showTextNode(nextTextNodeId)
 }
 
-
+document.getElementById('image').style.display = "contents";
 
 const textNodes = [
   {
     id: 1,
-    text: 'Welcome to the sorcerer world. Cursed Spirits run rampant and plague the lives of citizens and are the reason for unknown deaths. Cursed Spirits are a race of spiritual beings who manifested from cursed energy as a result of the negative emotions that flow out of humans. They bring harm to humanity. They are able to make themselves unnoticable to ordinary people but only a certain few can see them, Sorcerers. Sorcerers are individuals trained and employed in Japan to defend humanity from cursed spirits. Sorcerers are also able to use cursed energy to defend others but sorcerers who use their sorcery for evil are known as cursed users who work with cursed spirits to destroy the world. So, go on your path of heroism young sorcerer. Develop your techniques, become stronger, and reach the peak of sorcery to become the strongest and unrivaled sorcerer.',
-    image: 'https://static.wikia.nocookie.net/jujutsu-kaisen/images/6/60/Divine_Dogs_%28Anime%29.png/revision/latest/scale-to-width-down/1000?cb=20201003031056',
+    text: 'Welcome to the sorcerer world. Cursed Spirits run rampant and plague the lives of citizens and are the reason for unknown deaths. They are able to make themselves unnoticable to ordinary people but only a certain few can see them, Sorcerers. Sorcerers are individuals trained and employed to defend humanity from cursed spirits. Sorcerers are also able to use cursed energy to defend others So, go on your path of heroism young sorcerer. Develop your techniques, become stronger, and reach the peak of sorcery to become the strongest.',
     options: [
-      {
-        text: 'Start your journey',
-        nextText: 2
-      },
       {
         text: 'Start your journey',
         nextText: 2
@@ -65,6 +58,7 @@ const textNodes = [
   {
     id: 2,
     text: 'Choose a family:',
+    
     options: [
       {
         text: 'Zenin family ',
