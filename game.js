@@ -450,10 +450,42 @@ const textNodes = [
   },
   {
     id: 28,
-    text: 'Working',
+    text: 'You wake up in a desolate temple unable to recall who you are.',
     options: [
+    {
+        text: 'Walk out the destroyed door',
+        nextText: 28
+      },
+      {
+        text: 'Commit Seppuku as a sacrifice.',
+        nextText: 30
+      }
+    ]
+  },
+  {
+    id: 29,
+    text: 'You find an ominous cursed soul',
+    options: [
+    {
+        text: 'Pick it up',
+        setState: { Essence: true },
+        nextText: -1
+    },
+    {
+        text: 'Leave it there',
+        nextText: -1
+    },
+    ]
+  },
+  {
+    id: 30,
+    text: 'As you lay there bleeding out. You wish that in your next life, you can live an honest life',
+    options: [
+    {
+        text: 'You enter the channel of Reincarnation',
+        nextText: -1
+      },
     ]
   },
 ]
-
 startGame()
