@@ -216,7 +216,6 @@ const textNodes = [
     options: [
       {
         text: 'Ten Shadows Technique',
-        setState: { blueGoo: true },
         nextText: 16
       },
       {
@@ -239,7 +238,6 @@ const textNodes = [
     options: [
       {
         text: 'Blood Manipulation',
-        setState: { blueGoo: true },
         nextText: 19
       },
       {
@@ -262,7 +260,6 @@ const textNodes = [
     options: [
       {
         text: 'Limitless',
-        setState: { blueGoo: true },
         nextText: 22
       },
       {
@@ -453,8 +450,8 @@ const textNodes = [
     text: 'You wake up in a desolate temple unable to recall who you are.',
     options: [
     {
-        text: 'Walk out the destroyed door',
-        nextText: 28
+        text: 'Walk out the destroyed door to the dark and cursed forest',
+        nextText: 29
       },
       {
         text: 'Commit Seppuku as a sacrifice.',
@@ -468,12 +465,11 @@ const textNodes = [
     options: [
     {
         text: 'Pick it up',
-        setState: { Essence: true },
-        nextText: -1
+        nextText: 31
     },
     {
         text: 'Leave it there',
-        nextText: -1
+        nextText: 49
     },
     ]
   },
@@ -487,5 +483,314 @@ const textNodes = [
       },
     ]
   },
+  {
+    id: 31,
+    text: 'As you pick it up, you feel a sting in your hand and a bit light headed',
+    options: [
+    {
+        text: 'Continue',
+        nextText: 32
+    },
+    ]
+  },
+  {
+    id: 32,
+    text: 'You put the ominous soul in your cursed pouch and walk through the forest',
+    options: [
+    {
+        text: 'Continue walking',
+        setState: { essence: true },
+        nextText: 33
+    },
+    ]
+  },
+  {
+    id: 33,
+    text: 'In your vision you see an old shack and hear the whispers of a person',
+    options: [
+    {
+        text: 'Go check it out',
+        nextText: 34
+    },
+    {
+        text: 'Ignore the shack',
+        nextText: 43
+    },
+    ]
+  },
+  {
+    id: 34,
+    text: 'In the shack there is an old man with bandages over his eyes. "Hello there young one" he says before you step into the shack',
+    options: [
+    {
+        text: '"Hello there senior. May I be presumptious and ask the identity of senior?"',
+        nextText: 35
+    },
+    ]
+  },
+  {
+    id: 35,
+    text: '"Me? I am but a person of a past era waiting for the clock to stop ticking.',
+    options: [
+    {
+        text: '"What I have in my hand? I do not know, do you know what it is senior?"',
+        requiredState: (currentState) => currentState.essence,
+        nextText: 36
+    },
+    {
+        text: '"It was nice meeting you senior,I will be on my way then."',
+        nextText: 45
+    },
+    ]
+  },
+  {
+    id: 36,
+    text: '"An ominous soul, a soul that could not develop in time and died off to become an ominous soul. I have not seen one of those in a century so here me out young one, If you give me the ominous soul, Ill give you one of my many techniques to help you on your journey."',
+    options: [
+    {
+        text: '"Sure Senior, I trust you, here it is."',
+        nextText: 37
+    },
+    {
+        text: '"I think I will keep it with me senior."',
+        nextText: 43
+    },
+    ]
+  },
+  {
+    id: 37,
+    text: '"You have made the right choice my precious junior. Now choose, which technique do you want me to teach you?"',
+    options: [
+    {
+        text: '"Broken Cycle of Life and Death"',
+        nextText: 38
+    },
+    {
+        text: '"Heavenly Jade eyes"',
+        nextText: 39
+    },
+    {
+        text: '"Miracle of the Heavens"',
+        nextText: 40
+    },
+    ]
+  },
+  {
+    id: 38,
+    text: '"Ah, the "Broken Cycle of Life and Death", a technique which is said that if mastered, its users can breake the cycle of life and death and become immortal, undying and unaging but as you practice it, your lifespan and healht shall improve by leaps and leaps as well. Are you sure you want this technique?"',
+    options: [
+    {
+        text: '"Yes"',
+        requiredState: (currentState) => currentState.essence,
+        setState: { essence: false, Life: true },
+        nextText: 41
+    },
+    {
+        text: '"Let me look at the other techniques"',
+        nextText: 37
+    },
+    ]
+  },
+  {
+    id: 39,
+    text: '"Ah, the "Heavenly Jade eyes", a technique which is said to have been made by Changming after surviving a deadly survive attack to help allow him to see everything around him. As you practice it, you will be able to notice all the things around you from the smallest of details and if mastered, one could see all that there is in the mortal realm. Are you sure you want this technique?"',
+    options: [
+    {
+        text: '"Yes"',
+        requiredState: (currentState) => currentState.essence,
+        setState: { essence: false, Jade: true },
+        nextText: 41
+    },
+    {
+        text: '"Let me look at the other techniques"',
+        nextText: 37
+    },
+    ]
+  },
+  {
+    id: 40,
+    text: '"Ah, "Miracle of the Heavens", a technique which allows the user to gain the attention and protection of the heavens. Its users are said to have luck befitting the heavens and if mastered, its believed you would become a true "Miracle of the Heavens" finding fortune where ever you step and surviving any encounter. Are you sure you want this technique?"',
+    options: [
+    {
+        text: '"Yes"',
+        requiredState: (currentState) => currentState.essence,
+        setState: { essence: false, Miracle: true },
+        nextText: 41
+    },
+    {
+        text: '"Let me look at the other techniques"',
+        nextText: 37
+    },
+    ]
+  },
+  {
+    id: 41,
+    text: '"Ok then, here is the technique my precious junior and thank you for the ominous soul, it should make for an amazing elixir"',
+    options: [
+    {
+        text: '"Thank you senior. I shall never forget your kindness."',
+        nextText: 44
+    },
+    ]
+  },
+  {
+    id: 42,
+    text: 'You decide to not touch the strange and ominous object',
+    options: [
+    {
+        text: 'You continue on your journey through the dark forest',
+        nextText: 45
+    },
+    ]
+  },
+  {
+    id: 43,
+    text: '"If that is what you want foolish young one than I shall not interfere with your choice but do not come back begging me for another chance."',
+    options: [
+    {
+        text: 'You leave the shack and contine your journey',
+        nextText: 45
+    },
+    ]
+  },
+  {
+    id: 44,
+    text: 'You walk out the shack excited that you got a new technique to add to your arsenal',
+    options: [
+    {
+        text: 'You continue through the dark forest',
+        nextText: 45
+    },
+    ]
+  },
+  {
+    id: 45,
+    text: 'As you walk through the forest you begin to see light ahead of you. You run towards the light and what you see is shocking.',
+    options: [
+    {
+        text: '...',
+        nextText: 46
+    },
+    ]
+  },
+  {
+    id: 46,
+    text: 'Infront of you is a small cliff with a vibrant world full of color. Underneath the cliff you see a town full of life.',
+    options: [
+    {
+        text: 'In the rush of the moment, you run and jump of the cliff to get to the town quickly thinking it is not to big, you will survive.',
+        nextText: 47
+    },
+    {
+        text: 'You go down the path on the side of the cliff',
+        nextText: 48
+    },
+    ]
+  },
+  {
+    id: 47,
+    text: 'You died. why would you jum off. It is still a cliff genius. Oh my, oh my, you poor, poor soul, may you life a better life in your reincarnation',
+    options: [
+    {
+        text: 'You enter the channel of Reincarnation',
+        nextText: -1
+    },
+    ]
+  },
+  {
+    id: 48,
+    text: 'After a short walk you arrive at the village.',
+    options: [
+    {
+        text: 'You explore the village',
+        nextText: 50
+    },
+    ]
+  },
+  {
+    id: 49,
+    text: 'You walk deeper into the dark forest',
+    options: [
+    {
+        text: '...',
+        nextText: 33
+    },
+    ]
+  },
+  {
+    id: 49,
+    text: 'You walk deeper into the dark forest',
+    options: [
+    {
+        text: '...',
+        nextText: 33
+    },
+    ]
+  },
+  {
+    id: 50,
+    text: 'Where do you go?',
+    options: [
+    {
+        text: 'The alchemist guild',
+        nextText: 51
+    },
+    {
+        text: 'The inn',
+        nextText: 52
+    },
+    {
+        text: 'The sorcerer guild',
+        nextText: 53
+    },
+    ]
+  },
+  {
+    id: 51,
+    text: 'The alchemist guild, a worlwide guild known for being the #1 elixir and pill producers who can make any pill',
+    options: [
+    {
+        text: 'Enter the alchemist guild',
+        nextText: 54
+    },
+    {
+        text: 'Go somewhere else',
+        nextText: 50
+    },
+    ]
+  },
+  {
+    id: 54,
+    text: 'As you enter, the smell of thousands of herbs hits you followed up by the smell of smoke from the cauldrons. You can see alchemists working with their cauldrons with other carrying herbs frantically.',
+    options: [
+    {
+        text: 'Go to the receptionist',
+        nextText: 55
+    },
+    ]
+  },
+  {
+    id: 55,
+    text: '"Hello, how may I help you?"',
+    options: [
+    {
+        text: '"Hello, I just wanted to see if this was worth anything?"',
+        requiredState: (currentState) => currentState.essence,
+        nextText: 56
+    },
+    ]
+  },
+  {
+    id: 56,
+    text: '"What is i--Wait, is that an ominous soul! How did you get it"',
+    options: [
+    {
+        text: '"Hello, I just wanted to see if this was worth anything?"',
+        nextText: 56
+    },
+    ]
+  },
 ]
 startGame()
+
+
