@@ -530,10 +530,10 @@ const textNodes = [
   },
   {
     id: 35,
-    text: '"Me? I am but a person of a past era waiting for the clock to stop ticking.',
+    text: '"Me? I am but a person of a past era waiting for the clock to stop ticking."',
     options: [
     {
-        text: '"What I have in my hand? I do not know, do you know what it is senior?"',
+        text: '"Senior do you know perhaps know what this is? I picked it up on my way here."',
         requiredState: (currentState) => currentState.essence,
         nextText: 36
     },
@@ -545,7 +545,7 @@ const textNodes = [
   },
   {
     id: 36,
-    text: '"An ominous soul, a soul that could not develop in time and died off to become an ominous soul. I have not seen one of those in a century so here me out young one, If you give me the ominous soul, Ill give you one of my many techniques to help you on your journey."',
+    text: '"An ominous cursed soul, a soul that could not develop in time and died off to become an ominous soul. I have not seen one of those in a century so here me out young one, If you give me the ominous soul, Ill give you one of my many techniques to help you on your journey."',
     options: [
     {
         text: '"Sure Senior, I trust you, here it is."',
@@ -572,6 +572,10 @@ const textNodes = [
     {
         text: '"Miracle of the Heavens"',
         nextText: 40
+    },
+    {
+        text: '"I think I do not want a technique"',
+        nextText: 35
     },
     ]
   },
