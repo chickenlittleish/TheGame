@@ -586,16 +586,6 @@ const textNodes = [
     ]
   },
   {
-    id: 49,
-    text: 'You walk deeper into the dark forest',
-    options: [
-    {
-        text: '...',
-        nextText: 33
-    },
-    ]
-  },
-  {
     id: 50,
     text: 'Where do you go?',
     options: [
@@ -650,11 +640,103 @@ const textNodes = [
   },
   {
     id: 56,
-    text: '"What is i--Wait, is that a cursed soul!"',
+    text: '"What is i--An ominous cursed soul!"',
     options: [
     {
-        text: '"Yeah, I just wanted to know if it was worth anything?"',
+        text: '"Oh so thats what this is. Is it worth anything?"',
         nextText: 57
+    },
+    ]
+  },
+  {
+    id: 57,
+    text: '"Wait, I have to talk with our senior alchemist"',
+    options: [
+    {
+        text: '"Okay"',
+        nextText: 58
+    },
+    ]
+  },
+  {
+    id: 58,
+    text: 'As you wait, you see a person beckoning at you. What do you do?',
+    options: [
+    {
+        text: '"Go see what that suspicious person wants"',
+        nextText: 59
+    },
+    {
+        text: 'Ignore the person',
+        nextText: 58
+    },
+    ]
+  },
+  {
+    id: 59,
+    text: '"I heard you had an ominous cursed soul with you, kid?"',
+    options: [
+    {
+        text: '"Yes I do, but what about it?"',
+        nextText: 60
+    },
+    ]
+  },
+  {
+    id: 60,
+    text: '"Okay, okay, so hear me out. Would you be willing to lend me the ominous cursed soul for me to try to make an ancient pill? I will even give you some of them if it succeeds."',
+    options: [
+    {
+        text: '"Before that, who even are you?"',
+        nextText: 61
+    },
+    ]
+  },
+  {
+    id: 61,
+    text: '"Oh yeah, sorry I forgot, my name is Chaoxiang, the LEGENDARY ALECHEMIST PRODOGY!, in my opinion. So with that, would you be willing to let me try to make the pill?"',
+    options: [
+    {
+        text: '"Okay, I am willing to take the gamble, your name is literally expecting fortune, so I hope it goes well. Here it is. And you better not be scamming me or I will personlly make sure you can not make another pill again."',
+        nextText: 62
+    },
+    {
+        text: '"No, never, I trust the receptionist more than some sketchy dude like you. I think I will wait for her."',
+        nextText: 63
+    },
+    ]
+  },
+  {
+    id: 62,
+    text: '"Thank you, trust me you will not regret it. Just give me a few hours to make the pill"',
+    options: [
+    {
+        text: 'Wait',
+        nextText: 63
+    },
+    {
+        text: '"No, never, I trust the receptionist more than some sketchy dude like you. I think I will wait for her."',
+        nextText: 63
+    },
+    ]
+  },
+  {
+    id: 63,
+    text: 'You wait a few hours when you see the door of Chaoxiang slide open.',
+    options: [
+    {
+        text: '"So did it go well?"',
+        nextText: 64
+    },
+    ]
+  },
+  {
+    id: 64,
+    text: '"I am sorry young sorcerer, the ominous cursed soul was too strong, the pills failed. No, I am just messign with you, fortunetly my luck was good for once and the pills succeed. Here take yours."',
+    options: [
+    {
+        text: 'You take the pills',
+        nextText: 62
     },
     ]
   },
