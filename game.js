@@ -9,7 +9,6 @@ function startGame() {
 }
 
 function showTextNode(textNodeIndex) {
-  //find text node with the given textNodeIndex
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
 
   textElement.innerText = textNode.text
@@ -77,7 +76,9 @@ const textNodes = [
   {
     id: 13,
     text: 'The Zenin Family, one of the 3 noble clans that embody all the noble values of a major clan. They believe powerful cursed techniques are more important than anything else. Choose an innate technique to posses:',
+
     options: [
+    
       {
         text: 'Ten Shadows Technique',
         nextText: 16
@@ -595,11 +596,7 @@ const textNodes = [
     },
     {
         text: 'The inn',
-        nextText: 52
-    },
-    {
-        text: 'The sorcerer guild',
-        nextText: 53
+        nextText: 68
     },
     ]
   },
@@ -668,7 +665,7 @@ const textNodes = [
     },
     {
         text: 'Ignore the person',
-        nextText: 58
+        nextText: 69
     },
     ]
   },
@@ -694,7 +691,7 @@ const textNodes = [
   },
   {
     id: 61,
-    text: '"Oh yeah, sorry I forgot, my name is Chaoxiang, the LEGENDARY ALECHEMIST PRODOGY!, in my opinion. So with that, would you be willing to let me try to make the pill?"',
+    text: '"Oh yeah, sorry I forgot, my name is Chaoxiang, the "LEGENDARY ALECHEMIST PRODOGY"!. So with that, would you be willing to let me try to make the pill?"',
     options: [
     {
         text: '"Okay, I am willing to take the gamble, your name is literally expecting fortune, so I hope it goes well. Here it is. And you better not be scamming me or I will personlly make sure you can not make another pill again."',
@@ -702,20 +699,16 @@ const textNodes = [
     },
     {
         text: '"No, never, I trust the receptionist more than some sketchy dude like you. I think I will wait for her."',
-        nextText: 63
+        nextText: 69
     },
     ]
   },
   {
     id: 62,
-    text: '"Thank you, trust me you will not regret it. Just give me a few hours to make the pill"',
+    text: '"Thank you, trust me you will not regret it. Just give me a few hours to make the pill. See you soon."',
     options: [
     {
-        text: 'Wait',
-        nextText: 63
-    },
-    {
-        text: '"No, never, I trust the receptionist more than some sketchy dude like you. I think I will wait for her."',
+        text: 'You wait for a while',
         nextText: 63
     },
     ]
@@ -732,151 +725,206 @@ const textNodes = [
   },
   {
     id: 64,
-    text: '"I am sorry young sorcerer, the ominous cursed soul was too strong, the pills failed. No, I am just messign with you, fortunetly my luck was good for once and the pills succeed. Here take yours."',
+    text: '"I am sorry young sorcerer, the ominous cursed soul was too strong, the pills failed. No, I am just messing with you, fortunetly my luck was good for once and the pills succeed. Here take your 5 pills."',
     options: [
     {
-        text: 'You take the pills',
-        nextText: 62
+        text: '"What type of pills are these?"',
+        requiredState: (currentState) => currentState.essence,
+        setState: { essence: false, pills: true },
+        nextText: 65
+    },
+    ]
+  },
+  {
+    id: 65,
+    text: '"So as much as I would like to explain what type of pill it is, unfortunetly I can not. this pill was made from an ancient pill formula I retrieved from some ruins and all I retrieved was the process not the description."',
+    options: [
+    {
+        text: '"What a shame"',
+        nextText: 66
+    },
+    ]
+  },
+  {
+    id: 66,
+    text: '"But we can make some guesses. I believe this might be a healing pill due to it needing blue soul grass and a 100 year gingsen but I am not entirely sure so take it with a grain of salt but I hope it can assisst you on your journey young sorcerer. Lets meet again next time."',
+    options: [
+    {
+        text: '"Thank you. See you around."',
+        nextText: 67
+    },
+    ]
+  },
+  {
+    id: 67,
+    text: 'You walk out of the alchemist guild with your pills in hand. Where do you head next.',
+    options: [
+    {
+        text: 'Go to the inn and get some rest',
+        nextText: 68
+    },
+    ]
+  },
+  {
+    id: 69,
+    text: 'You wait for the recepitionist for a while and she comes back with an old man.',
+    options: [
+    {
+        text: '"So what could I get for this?"',
+        nextText: 70
+    },
+    ]
+  },
+  {
+    id: 70,
+    text: '"You must be that kid with the ominous cursed soul. I am senior alchemist Mo Fan. Nice to meet you."',
+    options: [
+    {
+        text: '"Nice to meet you as well senior Mo Fan."',
+        nextText: 71
+    },
+    ]
+  },
+  {
+    id: 71,
+    text: 'By looking at that ominous cursed soul, I can tell that it must be a few hundred years old by the shade of purple of the soul but the red dots also means tht it might contain more than one dead soul. By looking at its complextion, it seems to have some spikes as well hinting that it absorbed the resentment of soldiers as well so it is tainted a bit but still valuable none the less.',
+    options: [
+    {
+        text: '"So is it bad or good?"',
+        nextText: 72
+    },
+    ]
+  },
+  {
+    id: 72,
+    text: '"You are very lucky for finding this young man. After analyzing it, I estimate that it might be worth around 8000 spirit crystals. So are you willing to sell it to us?"',
+    options: [
+    {
+        text: '"8000! Yes, yes, here take it."',
+        requiredState: (currentState) => currentState.essence,
+        setState: { essence: false, eightcrystal: true },
+        nextText: 73
+    },
+    {
+        text: '"I think I might keep this with me instead, I might have another use for it. Still thank you for the offer."',
+        nextText: 74
+    },
+    ]
+  },
+  {
+    id: 73,
+    text: '"Great doing business with you. This will do wonders for my research so I must thank you. IF you ever need any pills just come here and I will even give you a 40% discount just for you young sorcerer. See you next time"',
+    options: [
+    {
+        text: 'Thank you senior Mo Fan, see you around.',
+        nextText: 76
+    },
+    ]
+  },
+  {
+    id: 74,
+    text: '"What a shame but if you ever change your mind, you can find me here."',
+    options: [
+    {
+        text: 'You leave the alchemist guild with the ominous cursed soul still in hand.',
+        nextText: 68
+    },
+    ]
+  },
+  {
+    id: 68,
+    text: '"Hello. How may I help you?" Says the innkeeper.',
+    options: [
+    {
+        text: '"Just one room please"',
+        nextText: 77
+    },
+    {
+        text: 'Exit the inn',
+        nextText: 67
+    },
+    ]
+  },
+  {
+    id: 77,
+    text: '"That will be one spirit crystal please"',
+    options: [
+    {
+        text: '"I am sorry but I do not have any spirit crystals"',
+        requiredState: (currentState) => currentState.essence,
+        nextText: 78
+    },
+    {
+        text: '"I am sorry but I do not have any spirit crystals"',
+        requiredState: (currentState) => currentState.pills,
+        nextText: 78
+    },
+    {
+        text: '"Here you go. 1 spirit crystal"',
+        requiredState: (currentState) => currentState.eightcrystal,
+        nextText: 82
+    },
+    ]
+  },
+  {
+    id: 78,
+    text: '"Unfortunetly, that means I can not give you a room to stay in. I am sorry."',
+    options: [
+    {
+        text: '"You exit the inn and decide to sleep on the ground to get some rest after a hard day."',
+        nextText: 79
+    },
+    {
+        text: '"Wait, could I give you one of these pill instead"',
+        requiredState: (currentState) => currentState.pills,
+        nextText: 80
+    },
+    ]
+  },
+  {
+    id: 79,
+    text: 'Unfortunelty as you sleep outside on the ground, you get killed by some bandits.',
+    options: [
+    {
+        text: 'Continue',
+        nextText: 30
+    },
+    ]
+  },
+  {
+    id: 76,
+    text: 'You exit the alchemist guild with a lot of spirit crystals in hand. Where do you head next?',
+    options: [
+    {
+        text: 'The Inn',
+        nextText: 68
+    },
+    ]
+  },
+  {
+    id: 80,
+    text: '"A pill? Fine why not, it looks like it might be worth something. Here is your key."',
+    options: [
+    {
+        text: 'Continue',
+        nextText: 81
+    },
+    ]
+  },
+  {
+    id: 81,
+    text: 'You go to your room and have a good rest.',
+  },
+  {
+    id: 82,
+    text: '"Thank you and here is your key. I hope you enjoy your stay."',
+    options: [
+    {
+        text: 'Thanky you',
+        nextText: 81
     },
     ]
   },
 ]
+
 startGame()
-
-{
-    id: 3,
-    text: 'You venture forth in search of answers to where you are when you come across a merchant.',
-    options: [
-      {
-        text: 'Trade the goo for a sword',
-        requiredState: (currentState) => currentState.blueGoo,
-        setState: { blueGoo: false, sword: true },
-        nextText: 4
-      },
-      {
-        text: 'Trade the goo for a shield',
-        requiredState: (currentState) => currentState.blueGoo,
-        setState: { blueGoo: false, shield: true },
-        nextText: 4
-      },
-      {
-        text: 'Ignore the merchant',
-        nextText: 4
-      }
-    ]
-  },
-  {
-    id: 4,
-    text: 'After leaving the merchant you start to feel tired and stumble upon a small town next to a dangerous looking castle.',
-    options: [
-      {
-        text: 'Explore the castle',
-        nextText: 5
-      },
-      {
-        text: 'Find a room to sleep at in the town',
-        nextText: 6
-      },
-      {
-        text: 'Find some hay in a stable to sleep in',
-        nextText: 7
-      }
-    ]
-  },
-  {
-    id: 5,
-    text: 'You are so tired that you fall asleep while exploring the castle and are killed by some terrible monster in your sleep.',
-    options: [
-      {
-        text: 'Restart',
-        nextText: -1
-      }
-    ]
-  },
-  {
-    id: 6,
-    text: 'Without any money to buy a room you break into the nearest inn and fall asleep. After a few hours of sleep the owner of the inn finds you and has the town guard lock you in a cell.',
-    options: [
-      {
-        text: 'Restart',
-        nextText: -1
-      }
-    ]
-  },
-  {
-    id: 7,
-    text: 'You wake up well rested and full of energy ready to explore the nearby castle.',
-    options: [
-      {
-        text: 'Explore the castle',
-        nextText: 7
-      }
-    ]
-  },
-  {
-    id: 8,
-    text: 'While exploring the castle you come across a horrible monster in your path.',
-    options: [
-      {
-        text: 'Try to run',
-        nextText: 9
-      },
-      {
-        text: 'Attack it with your sword',
-        requiredState: (currentState) => currentState.sword,
-        nextText: 10
-      },
-      {
-        text: 'Hide behind your shield',
-        requiredState: (currentState) => currentState.shield,
-        nextText: 11
-      },
-      {
-        text: 'Throw the blue goo at it',
-        requiredState: (currentState) => currentState.blueGoo,
-        nextText: 12
-      }
-    ]
-  },
-  {
-    id: 9,
-    text: 'Your attempts to run are in vain and the monster easily catches.',
-    options: [
-      {
-        text: 'Restart',
-        nextText: -1
-      }
-    ]
-  },
-  {
-    id: 10,
-    text: 'You foolishly thought this monster could be slain with a single sword.',
-    options: [
-      {
-        text: 'Restart',
-        nextText: -1
-      }
-    ]
-  },
-  {
-    id: 11,
-    text: 'The monster laughed as you hid behind your shield and ate you.',
-    options: [
-      {
-        text: 'Restart',
-        nextText: -1
-      }
-    ]
-  },
-  {
-    id: 12,
-    text: 'You threw your jar of goo at the monster and it exploded. After the dust settled you saw the monster was destroyed. Seeing your victory you decide to claim this castle as your and live out the rest of your days there.',
-    options: [
-      {
-        text: 'Congratulations. Play Again.',
-        nextText: -1
-      }
-    ]
-  },
-
-
